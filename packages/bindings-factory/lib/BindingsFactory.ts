@@ -13,7 +13,7 @@ export class BindingsFactory implements RDF.BindingsFactory {
     this.dataFactory = dataFactory;
   }
 
-  public bindings(entries: [RDF.Variable, RDF.Term][] = []): Bindings {
+  public bindings(entries: Readonly<[RDF.Variable, RDF.Term]>[] = []): Bindings {
     return new Bindings(this.dataFactory, Map(entries.map(([ key, value ]) => [ key.value, value ])));
   }
 
